@@ -1,25 +1,23 @@
-import { signInWithCredential, signInWithPopup } from "firebase/auth"
-import { googleProvider, auth } from "../utils/firebase"
-
+import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
+import Home from './pages/Home';
+import { useEffect } from 'react';
+import getCurrentUser from './features/getCurrentUser';
 export default function App () {
-  const handleLogin = async (token) => {
-    try {
-      const { data } = await api.post('/auth/login', token)
-    } catch (error) {
-    }
-  }
-  const googleLoin = async () => {
-    const data = await signInWithPopup(auth, googleProvider);
-    const token = await data.user.getIdToken();
-    await handleLogin(token) // returns jwt token
-    console.log(token)
-    console.log(data)
-  }
+  useEffect(() => {
+    const getUser = async () => {
+      await getCurrentUser()
+    } 
+    getUser()
+  }, [])
   return (
     <>
-    <div className="w-full h-screen bg-black flex items-center justify-center">
-    <button className="w-50 h-24 bg-white" onClick={googleLoin}>Continue with Google</button>
-    </div>
+   <div>
+    <BrowserRouter>
+    <Routes>
+    <Route path='/home' element={<Home/>}> </Route>
+    </Routes>
+    </BrowserRouter>
+   </div>
     </>
   )
 }

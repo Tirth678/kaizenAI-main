@@ -5,4 +5,4 @@ const api = axios.create({
     withCredentials: true // passing cookies
 })
 
-export default api;
+export default api; 
