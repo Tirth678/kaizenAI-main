@@ -4,6 +4,7 @@ import proxy from 'express-http-proxy';
 import cors from 'cors';
 import cookieParser from 'cookie-parser';
 import auth from './middleware/auth.middleware.js';
+import getCurrentUser from './controller/user.controller.js'
 dotenv.config();
 
 const port = process.env.PORT;

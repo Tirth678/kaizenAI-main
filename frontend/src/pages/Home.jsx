@@ -8,6 +8,7 @@ export default function Home () {
     const handleLogin = async (token) => {
         try {
           const { data } = await api.post('/api/auth/login', {token})
+          console.log(data)
         } catch (error) {
         }
       }
@@ -25,7 +26,7 @@ export default function Home () {
           <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm">
           <div className="w-[340px] bg-[#13151c] border border-white/[0.08] rounded-2xl p-7 flex flex-col gap-5">
                 <div>
-                  <h2 className="text-[17px] font-semibold text-slate-100 tracking-tight">Welcome to Cortex AI</h2>
+                  <h2 className="text-[17px] font-semibold text-slate-100 tracking-tight">Welcome to Kaizen AI</h2>
                   <p className="text-[13px] text-slate-500">Please login to continue using the app.</p>
                 </div>
                 <button className="w-full flex items-center justify-center gap-3 py-[11px] rounded-xl text-sm font-medium text-white bg-linear-to-br from-indigo-500 to-violet-800 border border-indigo-500/30 shadow-lg shadow-indigo-500/20 hover:shadow-indigo-500/30 transition-all duration-150 cursor-pointer" onClick={googleLogin}>
